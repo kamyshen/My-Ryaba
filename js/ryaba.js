@@ -1,4 +1,5 @@
-dataURL = "https://api.myjson.com/bins/jcmhn";
+const dataURL = "https://api.myjson.com/bins/jcmhn";
+var finalStory = "";
 
 function handleButton() {
     let inputs = {
@@ -11,18 +12,18 @@ function handleButton() {
         speach : $("input[name=speech]")[0].value
     }
 
-    let finalStory = $(".output").html();
-
+    let storyToShow = finalStory;
+    
     for (key in inputs) {
         reg = new RegExp("{" + key + "}", "g");
-        finalStory = finalStory.replace(reg, inputs[key]);
+        storyToShow = storyToShow.replace(reg, inputs[key]);
     }
 
-    $(".output").html(finalStory);
+    $(".output").html(storyToShow);
 }
 
 function handleData(data) {
-    let finalStory = "";
+    
     let story = data["text"];
     
     for(i = 0; i < story.length; i++) {
