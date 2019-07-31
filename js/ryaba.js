@@ -31,7 +31,6 @@ function handleData(data) {
     }
 
     $(".output").html(finalStory);
-    return finalStory;
 }
 
 
